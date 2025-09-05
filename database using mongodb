@@ -1,0 +1,98 @@
+
+preduskdb> db.insertOne({
+... "name":"Yashi Shree",
+... "email":"yashishree24@gmail.com",
+... "about":"Full stack developer passionalte about making websites",
+... "linkedin":"https://www.linkedin.com/in/yashi-shree-6b5b18267/",
+... "github":"https://github.com/syas24",
+... "location":"India"});
+TypeError: db.insertOne is not a function
+preduskdb> db.Profile.insertOne({ "name": "Yashi Shree", "email": "yashishree24@gmail.com", "about": "Full stack developer passionalte about making websites", "linkedin": "https://www.linkedin.com/in/yashi-shree-6b5b18267/", "github": "https://github.com/syas24", "location": "India" });
+{
+  acknowledged: true,
+  insertedId: ObjectId('68baf6061eeb67d6b4735189')
+}
+preduskdb> db.createCollection("Skills");
+{ ok: 1 }
+preduskdb> db.Skills.insertOne({
+... "name":"HTML",
+... "level":"Advanced",
+... "type":"Frontend"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('68baf6a11eeb67d6b473518a')
+}
+preduskdb> db.Skills.insertMany({
+... "name":"CSS",
+... "level":"Advanced",
+... "type":"frontend"},
+... {
+... "name":"JavaScript",
+... "level":"Advanced",
+... "type":"frontend"},
+... {
+... "name":"NodeJS",
+... "level":"Intermediate",
+... "type":"backend"},
+... {
+... "name":"ReactJS",
+... "level":"Intermediate",
+... "type":"frontend"},
+... {
+... "name":"MYSQL",
+... "level":"Advanced",
+... "type":"backend"},
+... {
+... "name":"Java",
+... "level":"Intermediate",
+... "type":"Programming Language used for DSA"},
+... {
+... "name":"C",
+... "level":"Intermediate",
+... "type":"Theory language to understand other programming languages"},
+... {
+... "name":"MongoDB",
+... "level":"Intermediate",
+... "type":"backend"});
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+preduskdb> db.Skills.insertMany([{ "name": "CSS", "level": "Advanced", "type": "frontend" }, { "name": "JavaScript", "level": "Advanced", "type": "frontend" }, { "name": "NodeJS", "level": "Intermediate", "type": "backend" }, { "name": "ReactJS", "level": "Intermediate", "type": "frontend" }, { "name": "MYSQL", "level": "Advanced", "type": "backend" }, { "name": "Java", "level": "Intermediate", "type": "Programming Language used for DSA" }, { "name": "C", "level": "Intermediate", "type": "Theory language to understand other programming languages" }, { "name": "MongoDB", "level": "Intermediate", "type": "backend" }]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68baf8e31eeb67d6b473518b'),
+    '1': ObjectId('68baf8e31eeb67d6b473518c'),
+    '2': ObjectId('68baf8e31eeb67d6b473518d'),
+    '3': ObjectId('68baf8e31eeb67d6b473518e'),
+    '4': ObjectId('68baf8e31eeb67d6b473518f'),
+    '5': ObjectId('68baf8e31eeb67d6b4735190'),
+    '6': ObjectId('68baf8e31eeb67d6b4735191'),
+    '7': ObjectId('68baf8e31eeb67d6b4735192')
+  }
+}
+preduskdb> use projects
+switched to db projects
+projects> use predusk
+switched to db predusk
+predusk> db.createCollection("Projects");
+{ ok: 1 }
+predusk> db.Projects.insertMany([{"title":"Weather Dashboard",
+... "description":"Telling forecast for next 4 days of the particular city",
+... "tech-stack":"HTML,CSS,JS,MYSQL,PHP",
+... "github-link":"Yet to arrange"},
+... {"title":"E-COmmerce Website",
+... "description":"YS Mart for buying products",
+... "tech-stack":"ReactJS,CSS,Figma",
+... "github-link":"Not proper"},
+... {"title":"Project Allocation System",
+... "description":"Allocating guides for minor projects",
+... "tech-stack":"HTML,CSS,JS,Python(FastAPI),MongoDB",
+... "github-link":"Can't say"}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68bb16231eeb67d6b4735193'),
+    '1': ObjectId('68bb16231eeb67d6b4735194'),
+    '2': ObjectId('68bb16231eeb67d6b4735195')
+  }
+}
+predusk> ^C
